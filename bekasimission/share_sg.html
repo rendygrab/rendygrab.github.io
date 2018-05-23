@@ -1,0 +1,23 @@
+<html>
+  <title>I just completed a mission in Up, Up and Away</title>
+  <meta name="description" content="Found this addictive game in my Grab App. You have to try it too!">
+  <meta property="og:url" content="https://sandbox.grab.com/bekasimission/share_sg.html" >
+  <meta property="og:type" content="article" >
+  <meta property="og:title" content="I just completed a mission in Up, Up and Away" >
+  <meta property="og:description" content="Found this addictive game in my Grab App. You have to try it too!" >
+  <meta property="og:image" content="https://sandbox.grab.com/bekasimission/bekasi_mission_cover_sg.png" >
+</html>
+<body>
+  <script src="./deeplink.js"></script>
+  <script>
+    const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
+    deeplink.setup({
+        fallbackWebUrl: WEB_URL,
+        fallbackToWeb: true,
+    });
+    window.onload = function() {
+      const deep = deeplink.open("grab://open?screenType=SANDBOX");
+    }
+  </script>
+  <noscript>Please enable javascript first.</noscript>
+</body>

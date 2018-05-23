@@ -1,0 +1,23 @@
+<html>
+  <title>Saya baru saja menyelesaikan misi ke Planet Bekasi</title>
+  <meta name="description" content="Nemu game lucu di aplikasi Grab. Mau ikutan?">
+  <meta property="og:url" content="https://sandbox.grab.com/bekasimission/share_id.html" >
+  <meta property="og:type" content="article" >
+  <meta property="og:title" content="Saya baru saja menyelesaikan misi ke Planet Bekasi" >
+  <meta property="og:description" content="Nemu game lucu di aplikasi Grab. Mau ikutan?" >
+  <meta property="og:image" content="https://sandbox.grab.com/bekasimission/bekasi_mission_cover_id.png" >
+</html>
+<body>
+  <script src="./deeplink.js"></script>
+  <script>
+    const WEB_URL = "https://www.grab.com/id/memperkenalkan-grab-daily-kejutan-khusus-untuk-kamu-setiap-harinya/";
+    deeplink.setup({
+        fallbackWebUrl: WEB_URL,
+        fallbackToWeb: true,
+    });
+    window.onload = function() {
+      const deep = deeplink.open("grab://open?screenType=SANDBOX");
+    }
+  </script>
+  <noscript>Please enable javascript first.</noscript>
+</body>
