@@ -11,7 +11,7 @@
   <meta http-equiv="refresh" content="0; url=grab://open?screenType=SANDBOX" />
 </html>
 <body>
-  <a href="" class="deep-link">link</a>
+  <a href="" id="deep-link">link</a>
   <script src="./deeplink.js"></script>
   <script>
     const WEB_URL = "https://www.grab.com/id/memperkenalkan-grab-daily-kejutan-khusus-untuk-kamu-setiap-harinya/";
@@ -28,6 +28,12 @@
     });
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
+      var clickTarget = document.getElementById("deep-link");
+      var fakeMouseEvent = document.createEvent('MouseEvents');
+      fakeMouseEvent.initMouseEvent("click", true, true, window,
+          0, 0, 0, 20, 10, false, false, false, false, 0, null);
+
+      clickTarget.dispatchEvent(fakeMouseEvent);
     }
   </script>
   <noscript>Please enable javascript first.</noscript>
