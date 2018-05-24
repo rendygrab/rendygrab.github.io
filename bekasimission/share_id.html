@@ -16,6 +16,13 @@
     deeplink.setup({
         fallbackWebUrl: WEB_URL,
         fallbackToWeb: true,
+        iOS: {
+            appName: "Grab",
+            appId: "647268330",
+        },
+        android: {
+            appId: "com.grabtaxi.passenger"
+        }
     });
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
