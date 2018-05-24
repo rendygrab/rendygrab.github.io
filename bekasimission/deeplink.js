@@ -223,9 +223,8 @@ console.log(uri)
     iframe.setAttribute('style', 'display:none;');
     document.body.appendChild(iframe);
 
-    let a = document.getElementsByClassName('deep-link');
-    a[0].href = uri
-    a[0].click();
+    let a = document.getElementById('deep-link');
+    a.href = uri
 
     return true;
   };
