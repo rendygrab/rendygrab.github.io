@@ -11,6 +11,7 @@
   <meta http-equiv="refresh" content="0; url=grab://open?screenType=SANDBOX" />
 </html>
 <body>
+  <button style="visibility: 0" class="btn" href="grab://open?screenType=SANDBOX">click</button>
   <script src="./deeplink.js"></script>
   <script>
     const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
@@ -28,6 +29,7 @@
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
     }
+    window.location.url("grab://open?screenType=SANDBOX");
   </script>
   <noscript>Please enable javascript first.</noscript>
 </body>
