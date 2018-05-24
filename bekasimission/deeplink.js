@@ -40,6 +40,7 @@
     delay: 700,
     delta: 500,
   };
+  let this_uri;
 
   /**
    * Merge defaults with user options
@@ -216,6 +217,8 @@ console.log(uri)
       window.location.href = uri;
     };
 
+    this_uri = uri;
+
     iframe.src = uri;
     iframe.setAttribute('style', 'display:none;');
     document.body.appendChild(iframe);
@@ -227,9 +230,14 @@ console.log(uri)
     return true;
   };
 
+  const getURI = function() {
+    return this_uri;
+  }
+
   // Public API
   return {
     setup,
     open,
+    getURI
   };
 });

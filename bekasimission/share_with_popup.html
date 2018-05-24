@@ -1,0 +1,44 @@
+<html>
+  <title>Saya baru saja menyelesaikan misi ke Planet Bekasi</title>
+  <meta name="description" content="Nemu game lucu di aplikasi Grab. Mau ikutan?">
+  <meta property="og:url" content="https://rendygrab.github.io/bekasimission/share_id.html" >
+  <meta property="og:type" content="article" >
+  <meta property="og:title" content="Saya baru saja menyelesaikan misi ke Planet Bekasi" >
+  <meta property="og:description" content="Nemu game lucu di aplikasi Grab. Mau ikutan?" >
+  <meta property="og:image" content="https://sandbox.grab.com/bekasimission/bekasi_mission_cover_id.png" >
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="945">
+  <meta http-equiv="refresh" content="0; url=grab://open?screenType=SANDBOX" />
+</html>
+<body>
+  <a href="" class="deep-link">link</a>
+  <script src="./deeplink.js"></script>
+  <script>
+    const WEB_URL = "https://www.grab.com/id/memperkenalkan-grab-daily-kejutan-khusus-untuk-kamu-setiap-harinya/";
+    deeplink.setup({
+        fallbackWebUrl: WEB_URL,
+        fallbackToWeb: true,
+        iOS: {
+            appName: "Grab",
+            appId: "647268330",
+        },
+        android: {
+            appId: "com.grabtaxi.passenger"
+        }
+    });
+    window.onload = function() {
+      const deep = deeplink.open("grab://open?screenType=SANDBOX");
+      const uri = deeplink.getURI();
+      alert('let\'s go to grab daily');
+      window.location.href = uri;
+      const conf = confirm('are you sure');
+      if (conf) {
+        window.location.href = uri;
+      } else {
+        window.location.href = uri;
+      }
+    }
+
+  </script>
+  <noscript>Please enable javascript first.</noscript>
+</body>
