@@ -204,9 +204,9 @@
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       var matches = uri.match(/([^:]+):\/\/(.+)$/i);
       uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
-      uri += ";package=" + settings.android.appId + ";end";
+      uri += ";package=" + settings.android.appId + ";S.browser_fallback_url="+ settings.fallbackWebUrl + ";end";
     }
-
+console.log(uri)
     const iframe = document.createElement('iframe');
     iframe.onload = function() {
       console.log('iframe onload');
