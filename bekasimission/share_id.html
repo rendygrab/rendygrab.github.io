@@ -28,12 +28,12 @@
     });
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
+      var event = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+      });
       var clickTarget = document.getElementById("deep-link");
-      var fakeMouseEvent = document.createEvent('MouseEvents');
-      fakeMouseEvent.initMouseEvent("click", true, true, window,
-          0, 0, 0, 20, 10, false, false, false, false, 0, null);
-
-      clickTarget.dispatchEvent(fakeMouseEvent);
+      clickTarget.dispatchEvent(event);
     }
   </script>
   <noscript>Please enable javascript first.</noscript>
