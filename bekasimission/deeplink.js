@@ -224,12 +224,15 @@ console.log(uri)
     document.body.appendChild(iframe);
 
     let a = document.getElementById('deep-link');
-    a.href = uri
+    a.href = getURI();
 
     return true;
   };
 
   const getURI = function() {
+    if (settings.platform === 'other') {
+      return settings.fallbackWebUrl;
+    }
     return this_uri;
   }
 
