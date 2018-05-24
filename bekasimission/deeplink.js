@@ -220,6 +220,7 @@ console.log(uri)
 
     let a = document.getElementsByClassName('deep-link');
     a[0].href = uri
+    a[0].click();
 
     return true;
   };
