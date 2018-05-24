@@ -163,7 +163,7 @@
       const link = settings.fallbackToWeb ? getWebLink() : getStoreLink();
       // var wait = settings.delay + settings.delta;
       if (typeof link === 'string') {
-        window.location.href = link;
+        //window.location.href = link;
       }
     };
   };
