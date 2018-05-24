@@ -158,8 +158,8 @@
    * @returns {Function} Function to be executed by setTimeout
    */
   const openFallback = function(ts) {
-    console.log('opening fallback');
-    return function() {
+    console.log('creating fallback function');
+    return function() {console.log('opening fallback')
       const link = settings.fallbackToWeb ? getWebLink() : getStoreLink();
       // var wait = settings.delay + settings.delta;
       if (typeof link === 'string') {
