@@ -158,6 +158,7 @@
    * @returns {Function} Function to be executed by setTimeout
    */
   const openFallback = function(ts) {
+    console.log('opening fallback');
     return function() {
       const link = settings.fallbackToWeb ? getWebLink() : getStoreLink();
       // var wait = settings.delay + settings.delta;
@@ -202,6 +203,7 @@
 
     const iframe = document.createElement('iframe');
     iframe.onload = function() {
+      console.log('iframe onload');
       iframe.parentNode.removeChild(iframe);
       window.location.href = uri;
     };
