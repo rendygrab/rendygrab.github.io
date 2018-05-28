@@ -13,8 +13,11 @@
 </html>
 <body>
   <a class="navbar-brand" href="https://www.grab.com">Grab</a>
-  Klik lanjut jika anda tidak teralihkan secara otomatis
-  <button onclick="link()">Lanjut</button>
+  <div class="body">
+      Klik lanjut jika anda tidak teralihkan secara otomatis
+      <button onclick="link()">Lanjut</button>
+  </div>
+  
   <script src="./deeplink.js"></script>
   <script>
     const WEB_URL = "https://www.grab.com/id/memperkenalkan-grab-daily-kejutan-khusus-untuk-kamu-setiap-harinya/";
@@ -30,7 +33,7 @@
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
       setTimeout(() => {
-        document.querySelector('body').style = 'display:block;'
+        document.querySelector('.body').style = 'display:block;'
       }, 850);
     }
 

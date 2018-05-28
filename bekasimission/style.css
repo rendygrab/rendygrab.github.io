@@ -26,6 +26,8 @@
   }
   body {
     text-align: center;
+  }
+  .body {
     display: none;
   }
   button, .navbar-brand {

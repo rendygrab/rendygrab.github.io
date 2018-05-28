@@ -12,9 +12,12 @@
   <link rel="stylesheet" type="text/css" href="./style.css">
 </html>
 <body>
-    <a class="navbar-brand" href="https://www.grab.com">Grab</a>
+  <a class="navbar-brand" href="https://www.grab.com">Grab</a>
+  <div>
     Click continue if the browser does not redirect you
     <button onclick="link()">Continue</button>
+  </div>
+  
   <script src="./deeplink.js"></script>
   <script>
     const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
@@ -30,7 +33,7 @@
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
       setTimeout(() => {
-        document.querySelector('body').style = 'display:block;'
+        document.querySelector('.body').style = 'display:block;'
       }, 850);
     }
 
