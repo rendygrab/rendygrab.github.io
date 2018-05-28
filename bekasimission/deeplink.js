@@ -38,7 +38,6 @@
     fallback: true,
     fallbackToWeb: false,
     delay: 700,
-    delta: 500,
   };
   let this_uri;
 
@@ -58,46 +57,6 @@
       extended[key] = options[key];
     }
     return extended;
-  };
-
-  /**
-   * Generate the app store link for iOS / Apple app store
-   *
-   * @private
-   * @returns {String} App store itms-apps:// link
-   */
-  const getStoreURLiOS = function() {
-    const baseurl = 'itms-apps://itunes.apple.com/app/';
-    const name = settings.iOS.appName;
-    const id = settings.iOS.appId;
-    return id && name ? `${baseurl + name}/id${id}?mt=8` : null;
-  };
-
-  /**
-   * Generate the app store link for Google Play
-   *
-   * @private
-   * @returns {String} Play store https:// link
-   */
-  const getStoreURLAndroid = function() {
-    const baseurl = 'market://details?id=';
-    const id = settings.android.appId;
-    return id ? baseurl + id : null;
-  };
-
-  /**
-   * Get app store link, depending on the current platform
-   *
-   * @private
-   * @returns {String} url
-   */
-  const getStoreLink = function() {
-    const linkmap = {
-      ios: settings.iOS.storeUrl || getStoreURLiOS(),
-      android: settings.android.storeUrl || getStoreURLAndroid(),
-    };
-
-    return linkmap[settings.platform];
   };
 
   /**
@@ -159,12 +118,11 @@
    * @returns {Function} Function to be executed by setTimeout
    */
   const openFallback = function(ts) {
-    console.log('creating fallback function');
-    return function() {console.log('opening fallback')
-      const link = settings.fallbackToWeb ? getWebLink() : getStoreLink();
-      // var wait = settings.delay + settings.delta;
+    return function() {
+      const link = getWebLink();
+      
       if (typeof link === 'string') {
-        //window.location.href = link;
+        window.location.href = link;
       }
     };
   };
@@ -194,25 +152,26 @@
    * @return {Boolean} true, if you're on a mobile device and the link was opened
    */
   const open = function(uri) {
+    let timeout;
     if (isAndroid() && settings.androidDisabled) {
       return;
     }
 
     if (settings.fallback || settings.fallbackToWeb) {
-      setTimeout(openFallback(Date.now()), settings.delay);
+      timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+      clearTimeout(timeout);
       var matches = uri.match(/([^:]+):\/\/(.+)$/i);
       uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
       uri += ";package=" + settings.android.appId;
       uri += ";S.browser_fallback_url="+ settings.fallbackWebUrl;
       uri += ";end";
     }
-console.log(uri)
+    
     const iframe = document.createElement('iframe');
     iframe.onload = function() {
-      console.log('iframe onload');
       iframe.parentNode.removeChild(iframe);
       window.location.href = uri;
     };
@@ -223,23 +182,12 @@ console.log(uri)
     iframe.setAttribute('style', 'display:none;');
     document.body.appendChild(iframe);
 
-    let a = document.getElementById('deep-link');
-    a.href = getURI();
-
     return true;
   };
-
-  const getURI = function() {
-    if (settings.platform === 'other') {
-      return settings.fallbackWebUrl;
-    }
-    return this_uri;
-  }
 
   // Public API
   return {
     setup,
-    open,
-    getURI
+    open
   };
 });

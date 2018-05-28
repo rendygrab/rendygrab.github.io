@@ -11,25 +11,32 @@
   <meta http-equiv="refresh" content="0; url=grab://open?screenType=SANDBOX" />
 </html>
 <body>
-  <button style="visibility: 0" class="btn" href="grab://open?screenType=SANDBOX">click</button>
+    <a class="navbar-brand" href="https://www.grab.com">Grab</a>
+    Click continue if the browser does not redirect you
+    <button onclick="link()">Continue</button>
   <script src="./deeplink.js"></script>
   <script>
     const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
     deeplink.setup({
         fallbackWebUrl: WEB_URL,
         fallbackToWeb: true,
-        iOS: {
-            appName: "Grab",
-            appId: "647268330",
-        },
         android: {
             appId: "com.grabtaxi.passenger"
-        }
+        },
+        delay: 700,
     });
+    
     window.onload = function() {
       const deep = deeplink.open("grab://open?screenType=SANDBOX");
+      setTimeout(() => {
+        document.querySelector('body').style = 'display:block;'
+      }, 850);
     }
-    window.location.url("grab://open?screenType=SANDBOX");
+
+    function link() {
+      deeplink.open("grab://open?screenType=SANDBOX");
+      return;
+    }
   </script>
   <noscript>Please enable javascript first.</noscript>
 </body>
