@@ -162,7 +162,10 @@
     }
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
-      clearTimeout(timeout);
+      if (!settings.cleared) {
+        clearTimeout(timeout);
+        settings.cleared = true;
+      }
       var matches = uri.match(/([^:]+):\/\/(.+)$/i);
       uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
       uri += ";package=" + settings.android.appId;
