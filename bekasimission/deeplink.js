@@ -161,6 +161,10 @@
       timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
+    if (settings.cleared) {
+      openFallback(Date.now());
+    }
+
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       if (!settings.cleared) {
         clearTimeout(timeout);
