@@ -1,0 +1,57 @@
+<html>
+  <title>title</title>
+  <meta property="fb:app_id" content="158416561466741" />
+  <meta name="description" content="desc">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:url" content="https://sandbox.grab.com/share/test/en.html" >
+  <meta property="og:type" content="article" >
+  <meta property="og:title" content="title" >
+  <meta property="og:description" content="desc" >
+  <meta property="og:image" content="https://sandbox.grab.com/share/test/image.png" >
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="945">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@GrabSG">
+  
+  <meta property="twitter:title" content="title">
+  <meta property="twitter:description" content="">
+  <meta property="twitter:image" content="https://sandbox.grab.com/share/test/image.png">
+  <meta property="twitter:image:width" content="1800">
+  <meta property="twitter:image:height" content="945">
+
+
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="../deeplink.js"></script>
+</html>
+<body>
+  <a class="navbar-brand" href="https://www.grab.com">Grab</a>
+  <div>
+
+  
+    Click continue if the browser does not redirect you
+    <button onclick="link()">Continue</button>
+  
+  
+  </div>
+
+  <script>
+    const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
+    deeplink.setup({
+        fallbackWebUrl: WEB_URL,
+    });
+
+    function link() {
+      deeplink.open("grab://open?screenType=SANDBOX");
+    }
+
+    window.onload = function() {
+      link();
+    }
+  </script>
+  
+  
+    <noscript>Please enable javascript first.</noscript>
+  
+</body>
