@@ -27,9 +27,6 @@
   body {
     text-align: center;
   }
-  .body {
-    display: none;
-  }
   button, .navbar-brand {
     display: block;
     margin: 15px auto 20px;

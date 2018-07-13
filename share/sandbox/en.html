@@ -1,0 +1,63 @@
+<html>
+  <title>Introducing Grab Daily, a lifestyle add-on for your Grab app</title>
+  <meta property="fb:app_id" content="158416561466741" />
+  <meta name="description" content="Just for you, Singapore: Grab Daily is our very own lifestyle add-on for your commutes and beyond. Hint: there’s an addictive game lurking in Grab Daily.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:url" content="https://sandbox.grab.com/share/sandbox/en.html" >
+  <meta property="og:type" content="article" >
+  <meta property="og:title" content="Introducing Grab Daily, a lifestyle add-on for your Grab app" >
+  <meta property="og:description" content="Just for you, Singapore: Grab Daily is our very own lifestyle add-on for your commutes and beyond. Hint: there’s an addictive game lurking in Grab Daily." >
+  <meta property="og:image" content="https://sandbox.grab.com/share/sandbox/image.png" >
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="945">
+
+  <meta property="twitter:card" content="summary_large_image">
+
+  <meta property="twitter:site" content="@GrabSG">
+
+  <meta property="twitter:title" content="Introducing Grab Daily, a lifestyle add-on for your Grab app">
+  <meta property="twitter:description" content="Just for you, Singapore: Grab Daily is our very own lifestyle add-on for your commutes and beyond. Hint: there’s an addictive game lurking in Grab Daily.">
+  <meta property="twitter:image" content="https://sandbox.grab.com/share/sandbox/image.png">
+  <meta property="twitter:image:width" content="1800">
+  <meta property="twitter:image:height" content="945">
+
+
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="../deeplink.js"></script>
+</html>
+<body>
+  <a class="navbar-brand" href="https://www.grab.com">Grab</a>
+  <div>
+
+
+    Click continue if the browser does not redirect you
+    <button onclick="link()">Continue</button>
+
+
+  </div>
+
+  <script>
+    const WEB_URL = "https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/";
+    deeplink.setup({
+        fallbackWebUrl: WEB_URL,
+    });
+
+    function link() {
+      const params = new URLSearchParams(window.location.search);
+      const dl = params.get('deeplink');
+      if (dl) {
+        deeplink.open(decodeURIComponent(dl));
+      } else {
+        deeplink.open("grab://open?screenType=SANDBOX");
+      }
+    }
+
+    window.onload = function() {
+      link();
+    }
+  </script>
+
+
+    <noscript>Please enable javascript first.</noscript>
+
+</body>

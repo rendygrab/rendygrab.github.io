@@ -32,14 +32,15 @@
   let timeout;
   let settings = {};
   const defaults = {
-    iOS: {},
-    android: {},
+    android: {
+        appId: "com.grabtaxi.passenger"
+    },
     androidDisabled: false,
     fallback: true,
-    fallbackToWeb: false,
+    fallbackToWeb: true,
+    fallbackWebUrl: 'https://www.grab.com',
     delay: 700,
   };
-  let this_uri;
 
   /**
    * Merge defaults with user options
@@ -120,7 +121,7 @@
   const openFallback = function(ts) {
     return function() {
       const link = getWebLink();
-      
+
       if (typeof link === 'string') {
         window.location.href = link;
       }
@@ -157,12 +158,12 @@
       return;
     }
 
-    if (settings.fallback || settings.fallbackToWeb) {
-      timeout = setTimeout(openFallback(Date.now()), settings.delay);
-    }
-
     if (settings.cleared) {
       openFallback(Date.now());
+    }
+
+    if (settings.fallback || settings.fallbackToWeb) {
+      timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
@@ -176,14 +177,12 @@
       uri += ";S.browser_fallback_url="+ settings.fallbackWebUrl;
       uri += ";end";
     }
-    
+
     const iframe = document.createElement('iframe');
     iframe.onload = function() {
       iframe.parentNode.removeChild(iframe);
       window.location.href = uri;
     };
-
-    this_uri = uri;
 
     iframe.src = uri;
     iframe.setAttribute('style', 'display:none;');
