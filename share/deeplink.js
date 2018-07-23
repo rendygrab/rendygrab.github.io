@@ -168,6 +168,8 @@
       //timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
+    console.log(uri)
+    console.log(uri.match(/([^:]+):\/\/(.+)$/i))
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       console.log('is android');
       if (!settings.cleared) {
