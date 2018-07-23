@@ -168,8 +168,6 @@
       //timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
-    console.log(uri)
-    console.log(uri.match(/([^:]+):\/\/(.+)$/i))
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       console.log('is android');
       if (!settings.cleared) {
@@ -183,17 +181,9 @@
       uri += ";S.browser_fallback_url="+ settings.fallbackWebUrl;
       uri += ";end";
       console.log(uri);
+      window.location.href = uri;
     }
 
-    const iframe = document.createElement('iframe');
-    iframe.onload = function() {
-      iframe.parentNode.removeChild(iframe);
-      window.location.href = uri;
-    };
-
-    iframe.src = uri;
-    iframe.setAttribute('style', 'display:none;');
-    document.body.appendChild(iframe);
 
     return true;
   };
