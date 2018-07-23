@@ -33,7 +33,7 @@
     Click continue if the browser does not redirect you
     <button onclick="link()" href="intent://open?screenType=SANDBOX#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/;end">Continue</button>
 
-<a href="intent://open?screenType=SANDBOX#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/;end">Test</a>
+<a onclick="settime()" href="intent://open?screenType=SANDBOX#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https://www.grab.com/sg/introducing-grab-daily-a-lifestyle-add-on-for-your-grab-app/;end">Test</a>
   </div>
 
   <script>
@@ -41,7 +41,9 @@
     deeplink.setup({
         fallbackWebUrl: WEB_URL,
     });
-
+    function settime() {
+      console.log('here');
+    }
     function link() {
       const params = new URLSearchParams(window.location.search);
       const dl = params.get('deeplink');
