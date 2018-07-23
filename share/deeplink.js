@@ -182,6 +182,7 @@
       uri += ";package=" + settings.android.appId;
       uri += ";S.browser_fallback_url="+ settings.fallbackWebUrl;
       uri += ";end";
+      console.log(uri);
     }
 
     const iframe = document.createElement('iframe');
