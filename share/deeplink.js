@@ -159,7 +159,7 @@
     }
 
     if (settings.cleared) {
-      openFallback(Date.now());
+      //openFallback(Date.now());
     }
 
     if (settings.fallback || settings.fallbackToWeb) {
@@ -168,8 +168,8 @@
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       if (!settings.cleared) {
-        clearTimeout(timeout);
-        settings.cleared = true;
+        //clearTimeout(timeout);
+        //settings.cleared = true;
       }
       var matches = uri.match(/([^:]+):\/\/(.+)$/i);
       uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
