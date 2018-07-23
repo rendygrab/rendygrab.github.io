@@ -159,18 +159,21 @@
     }
 
     if (settings.cleared) {
+      console.log("settings cleared called")
       //openFallback(Date.now());
     }
 
     if (settings.fallback || settings.fallbackToWeb) {
+      console.log('timeout set');
       //timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
       console.log('is android');
       if (!settings.cleared) {
-        //clearTimeout(timeout);
-        //settings.cleared = true;
+        console.log('clearing timeout and clearing settings');
+        clearTimeout(timeout);
+        settings.cleared = true;
       }
       var matches = uri.match(/([^:]+):\/\/(.+)$/i);
       uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
