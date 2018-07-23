@@ -163,10 +163,11 @@
     }
 
     if (settings.fallback || settings.fallbackToWeb) {
-      timeout = setTimeout(openFallback(Date.now()), settings.delay);
+      //timeout = setTimeout(openFallback(Date.now()), settings.delay);
     }
 
     if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+      console.log('is android');
       if (!settings.cleared) {
         //clearTimeout(timeout);
         //settings.cleared = true;
